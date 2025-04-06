@@ -111,7 +111,7 @@ public class ListaEnlazadaSimple<T> {
     public Nodo<T> buscar(T dato) {
         Nodo<T> actual = cabeza;
         while (actual != null) {
-            if (actual.getDato().toString().equals(dato.toString())) {
+            if (actual.getDato().equals(dato)) {
                 return actual; // Retorna el nodo si lo encuentra
             }
             actual = actual.getSiguiente();
@@ -139,13 +139,26 @@ public class ListaEnlazadaSimple<T> {
         return tamanno;
     }
 
-    public void imprimir() {
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
         Nodo<T> actual = cabeza;
         while (actual != null) {
-            System.out.print(actual + (actual.getSiguiente() != null ? " -> " : ""));
+            sb.append(actual);
+            if (actual.getSiguiente() != null) {
+                sb.append(" -> ");
+            }
             actual = actual.getSiguiente();
         }
-        System.out.println();
+        return sb.toString();
+    }
+
+    public Nodo<T> getCabeza() {
+        return cabeza;
+    }
+
+    public void setCabeza(Nodo<T> cabeza) {
+        this.cabeza = cabeza;
     }
 
     // ---------------------- Iterador Básico ----------------------
@@ -172,5 +185,7 @@ public class ListaEnlazadaSimple<T> {
             actual = actual.getSiguiente();
             return dato;
         }
+
+
     }
 }

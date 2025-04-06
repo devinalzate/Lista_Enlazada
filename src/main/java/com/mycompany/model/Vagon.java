@@ -10,6 +10,7 @@ public class Vagon {
     public Vagon(String nombre_vagon, Cultivo[] cultivos){
         this.cultivos = cultivos;
         this.nombre_vagon = nombre_vagon;
+        this.valor = getValor();
     }
 
     public Cultivo[] getCultivos() {
@@ -23,7 +24,7 @@ public class Vagon {
     public int getValor() {
         int valor = 0;
         for (Cultivo cultivo : cultivos){
-            valor += cultivo.precio;
+            valor += cultivo.getPrecio();
         }
         return valor;
     }
@@ -39,5 +40,18 @@ public class Vagon {
                 ",\n cultivos=" + Arrays.toString(cultivos) +
                 ",\n valor=" + valor +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Vagon vagon = (Vagon) obj;
+        return this.nombre_vagon.equalsIgnoreCase(vagon.nombre_vagon); // Comparación por nombre
+    }
+
+    @Override
+    public int hashCode() {
+        return nombre_vagon.toLowerCase().hashCode(); // Consistencia con equals
     }
 }

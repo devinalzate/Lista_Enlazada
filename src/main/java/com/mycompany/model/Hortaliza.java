@@ -1,15 +1,15 @@
 package com.mycompany.model;
 
 public class Hortaliza extends Regadio {
-    public static final int precio = 5;
 
     public Hortaliza(String epocaDeSiembra, String cosechaAdecuada, String exposicionAlSol, String loteDeCultivo, String plaga,
-                     int frecuenciaDeRiego, double necesidadDeAgua, String nombreDeCultivo) {
-        super(epocaDeSiembra, cosechaAdecuada, exposicionAlSol, loteDeCultivo, plaga, nombreDeCultivo, frecuenciaDeRiego, necesidadDeAgua);
+                     String nombreDeCultivo) {
+        super(epocaDeSiembra, cosechaAdecuada, exposicionAlSol, loteDeCultivo, plaga, nombreDeCultivo);
+        calcularParametrosDeRiego();
     }
 
     @Override
-    public void calcularParametrosDeRiego(String nombreCultivo) {
+    public void calcularParametrosDeRiego() {
         switch (nombreCultivo.toLowerCase()) {
             //Hortaliza
             case "tomate":

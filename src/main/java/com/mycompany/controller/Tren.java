@@ -11,7 +11,7 @@ package com.mycompany.controller;
 public class Tren {
 
     public static void main(String[] args) {
-        Controller controlador = new Controller();
+        ControllerMenu controlador = new ControllerMenu();
     }
 }
    

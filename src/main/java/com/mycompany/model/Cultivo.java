@@ -13,25 +13,16 @@ public class Cultivo {
     protected String cosechaAdecuada;
     protected String exposicionAlSol; // valores posibles: "sol", "sol/sombra", "sombra"
     protected String loteDeCultivo;
-    protected String plaga; // según el tipo de cultivo, puede ser null
     public int precio;
 
-    public Cultivo(String epocaDeSiembra, String cosechaAdecuada, String exposicionAlSol, String loteDeCultivo, String plaga, int precio) {
+    public Cultivo(String epocaDeSiembra, String cosechaAdecuada, String exposicionAlSol, String loteDeCultivo, int precio) {
         this.epocaDeSiembra = epocaDeSiembra;
         this.cosechaAdecuada = cosechaAdecuada;
         this.exposicionAlSol = exposicionAlSol;
         this.loteDeCultivo = loteDeCultivo;
-        this.plaga = plaga;
         this.precio = precio;
     }
 
-    public String getPlaga() {
-        return plaga;
-    }
-
-    public void setPlaga(String plaga) {
-        this.plaga = plaga;
-    }
 
     public String getLoteDeCultivo() {
         return loteDeCultivo;
@@ -65,6 +56,10 @@ public class Cultivo {
         this.epocaDeSiembra = epocaDeSiembra;
     }
 
+    public int getPrecio() {return precio;}
+
+    public void setPrecio(int precio) {this.precio = precio;}
+
     @Override
     public String toString() {
         return "Cultivo{" +
@@ -72,7 +67,6 @@ public class Cultivo {
                 ", cosechaAdecuada='" + cosechaAdecuada + '\'' +
                 ", exposicionAlSol='" + exposicionAlSol + '\'' +
                 ", loteDeCultivo='" + loteDeCultivo + '\'' +
-                ", plaga='" + plaga + '\'' +
                 ", precio=" + precio +
                 '}';
     }

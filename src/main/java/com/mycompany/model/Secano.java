@@ -4,28 +4,27 @@ package com.mycompany.model;
 
 public abstract class Secano extends Cultivo {
     protected String materialIndustrial;
+    protected String nombreCultivo;
     public static final int precio = 15;
 
     public Secano(String epocaDeSiembra, String cosechaAdecuada, String exposicionAlSol,
                   String loteDeCultivo, String nombreCultivo) {
-        super(epocaDeSiembra, cosechaAdecuada, exposicionAlSol, loteDeCultivo, null, precio);
-        this.materialIndustrial = calcularMaterialIndustrial(nombreCultivo);
+        super(epocaDeSiembra, cosechaAdecuada, exposicionAlSol, loteDeCultivo, precio);
+        this.nombreCultivo = nombreCultivo;
     }
 
-    private String calcularMaterialIndustrial(String nombreCultivo) {
-        switch (nombreCultivo.toLowerCase()) {
-            case "trigo":
-            case "maíz":
-            case "avena":
-            case "centeno":
-                return "Cosechadora";
-            case "garbanzo":
-            case "lenteja":
-            case "alubia":
-                return "Empaquetadora";
-            default:
-                return "Equipo estándar";
-        }
+    public abstract void calcularMaterialIndustrial();
+
+    @Override
+    public String toString() {
+        return "Secano{" +
+                "epocaDeSiembra='" + epocaDeSiembra + '\'' +
+                ", cosechaAdecuada='" + cosechaAdecuada + '\'' +
+                ", exposicionAlSol='" + exposicionAlSol + '\'' +
+                ", loteDeCultivo='" + loteDeCultivo + '\'' +
+                ", precio=" + precio +
+                ", materialIndustrial='" + materialIndustrial + '\'' +
+                '}';
     }
 }
 
