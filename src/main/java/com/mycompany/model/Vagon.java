@@ -34,10 +34,10 @@ public class Vagon {
 
     @Override
     public String toString() {
-        return "Vagon{" +
+        return "\nVagon{" +
                 "nombre_vagon='" + nombre_vagon + '\'' +
-                ", cultivos=" + Arrays.toString(cultivos) +
-                ", valor=" + valor +
+                ",\n cultivos=" + Arrays.toString(cultivos) +
+                ",\n valor=" + valor +
                 '}';
     }
 }

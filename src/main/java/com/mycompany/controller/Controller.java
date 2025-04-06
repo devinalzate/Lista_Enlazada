@@ -114,9 +114,11 @@ public class Controller {
             System.out.println("dato a buscar");
 
             String nombreExis = scanner.nextLine();
-            Vagon vag = new Vagon(nombreExis, cultivos_1);
+            Vagon vag = new Vagon(nombreExis, cultivos_3);
 
             Nodo<Vagon> encontrado = lista.buscar(vag);
+            Vagon encontradop = encontrado.getDato();
+
 
             Cultivo[] cultivos_encontrados = encontrado.getDato().getCultivos();
             for (Cultivo cultivo : cultivos_encontrados){
@@ -125,25 +127,24 @@ public class Controller {
             System.out.println("El valor del vagon es: " + encontrado.getDato().getValor() );
 
 
-//            System.out.println("dato nuevo");
-//            String nombreNuevo = scanner.nextLine();
-//            int edadNuevo = scanner.nextInt();
-//            Cultivo nuevoDato = new Cultivo(nombreNuevo, edadNuevo);
-//            int opcion = consola.opcionesAgregar();
-//            switch (opcion){
-//                case 1:
-//                    lista.agregarAntesDe(datoExistente, nuevoDato);
-//                    lista.imprimir();
-//                    break;
-//                case 2:
-//                    lista.agregarDespuesDe(datoExistente, nuevoDato);
-//                    lista.imprimir();
-//                    break;
-//                case 3:
-//                    break;
-//                default:
-//                    System.out.println("Opción inválida. Intente nuevamente.");
-//            }
+            System.out.println("dato nuevo");
+            String nombreNuevo = scanner.nextLine();
+            Vagon nuevoDato = new Vagon(nombreNuevo, cultivos_3);
+            int opcion = consola.opcionesAgregar();
+            switch (opcion){
+                case 1:
+                    lista.agregarAntesDe(encontradop, nuevoDato);
+                    lista.imprimir();
+                    break;
+                case 2:
+                    lista.agregarDespuesDe(encontradop, nuevoDato);
+                    lista.imprimir();
+                    break;
+                case 3:
+                    break;
+                default:
+                    System.out.println("Opción inválida. Intente nuevamente.");
+            }
         }
         catch(Exception e){
             System.out.println("error " + e.getMessage());
