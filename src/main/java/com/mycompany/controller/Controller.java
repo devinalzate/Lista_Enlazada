@@ -84,7 +84,7 @@ public class Controller {
                             "Mildiu",
                             1,
                             4.0,
-                            "acelga")
+                            "tomate")
             };
 
 
