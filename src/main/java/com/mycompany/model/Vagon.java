@@ -21,6 +21,10 @@ public class Vagon {
     }
 
     public int getValor() {
+        int valor = 0;
+        for (Cultivo cultivo : cultivos){
+            valor += cultivo.precio;
+        }
         return valor;
     }
 

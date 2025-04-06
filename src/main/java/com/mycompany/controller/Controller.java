@@ -122,6 +122,7 @@ public class Controller {
             for (Cultivo cultivo : cultivos_encontrados){
                 System.out.println(cultivo.toString());
             }
+            System.out.println("El valor del vagon es: " + encontrado.getDato().getValor() );
 
 
 //            System.out.println("dato nuevo");
